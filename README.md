@@ -6,4 +6,4 @@ Ensure that you have python3 installed on your computer. While not required, it 
 
 To install this code make sure to install the following packages:
 - ```pip install Pillow```
-- 
+- ```pip install opencv-python```
