@@ -17,7 +17,6 @@ from tqdm import tqdm_notebook as tqdm
 
 tqdm().pandas()
 
-
 def load_doc(filename):
     # Opening the file as read only
     file = open(filename, 'r')
@@ -30,11 +29,12 @@ def all_img_captions(filename):
     captions = file.split('\n')
     descriptions ={}
     for caption in captions[:-1]:
-        img, caption = caption.split('\t')
-        if img[:-2] not in descriptions:
-            descriptions[img[:-2]] = [ caption ]
+        print(caption)
+        img, caption = caption.split(', ', 1)
+        if img not in descriptions:
+            descriptions[img] = [ caption ]
         else:
-            descriptions[img[:-2]].append(caption)
+            descriptions[img].append(caption)
     return descriptions
 
 def cleaning_text(captions):
@@ -74,12 +74,12 @@ def save_descriptions(descriptions, filename):
     file.write(data)
     file.close()
 
-dataset_text = "DATA/flicker30k-captions.txt"
+dataset_text = "../DATA/"
 
 # change this to the path of the 30k images dataset
-dataset_images = "D:\dataflair projects\Project - Image Caption Generator\Flicker8k_Dataset"
+dataset_images = "D:\dataflair projects\Project - Image Caption Generator\Flicker30k_Dataset"
 
-filename = dataset_text + "/" + "Flickr8k.token.txt"
+filename = dataset_text + "/" + "Flickr30k-captions.txt"
 #loading the file that contains all data
 #mapping them into descriptions dictionary img to 5 captions
 descriptions = all_img_captions(filename)
@@ -148,7 +148,7 @@ def load_features(photos):
     return features
 
 
-filename = dataset_text + "/" + "Flickr_8k.trainImages.txt"
+filename = dataset_text + "/" + "Flickr_30k.trainImages.txt"
 
 #train = loading_data(filename)
 train_imgs = load_photos(filename)
