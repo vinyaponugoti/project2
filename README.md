@@ -7,3 +7,8 @@ Ensure that you have python3 installed on your computer. While not required, it 
 To install this code make sure to install the following packages:
 - ```pip install Pillow```
 - ```pip install opencv-python```
+- ```pip install tensorflow```
+- ```pip install keras```
+- ```pip install numpy```
+- ```pip install tqdm```
+- ```pip install jupyterlab```
