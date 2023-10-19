@@ -1,13 +1,23 @@
+from keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+from keras.applications.xception import Xception
+from keras.models import load_model
+from pickle import load
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 import argparse
+import os
+import csv
+import re
 
 
-ap = argparse.ArgumentParser()
-ap.add_argument('-i', '--image', required=True, help="Image Path")
-args = vars(ap.parse_args())
-img_path = args['image']
+# ap = argparse.ArgumentParser()
+# ap.add_argument('-i', '--image', required=True, help="Image Path")
+# args = vars(ap.parse_args())
+# img_path = args['image']
+
+# img_path = "DATA/well_lit_test_set/ILSVRC2015_test_00000015.JPEG"
 
 def extract_features(filename, model):
         try:
@@ -49,16 +59,42 @@ def generate_desc(model, tokenizer, photo, max_length):
     return in_text
 
 
-#path = 'Flicker8k_Dataset/111537222_07e56d5a30.jpg'
-max_length = 32
-tokenizer = load(open("tokenizer.p","rb"))
-model = load_model('models/model_9.h5')
-xception_model = Xception(include_top=False, pooling="avg")
+def save_test_results(test_dataset, csv_path):
+    # well_lit_test = os.listdir("DATA/well_lit_test_set")
+    # print(well_lit_test)
+    output_csv_path = f"DATA/{csv_path}"
+    if not os.path.exists(output_csv_path):
+        test_dataset_images = os.listdir(f"DATA/{test_dataset}")
 
-photo = extract_features(img_path, xception_model)
-img = Image.open(img_path)
+        with open(output_csv_path, 'w', newline='') as csv_file:
+            csv_writer = csv.writer(csv_file)
 
-description = generate_desc(model, tokenizer, photo, max_length)
-print("\n\n")
-print(description)
-plt.imshow(img)
+            for test_img in test_dataset_images:
+                img_path = f"DATA/{test_dataset}/{test_img}"
+                print(img_path)
+
+                # CHANGE max_length to what expected shape size should be in the ValueError if there is an error
+                max_length = 23
+
+                tokenizer = load(open("tokenizer.p","rb"))
+                model = load_model('models/model_9.h5')
+                xception_model = Xception(include_top=False, pooling="avg")
+
+                photo = extract_features(img_path, xception_model)
+                img = Image.open(img_path)
+
+                description = generate_desc(model, tokenizer, photo, max_length)
+                print("\n\n")
+                # print(description)
+                filtered_description = re.sub(r'^start\s+|\s+end$', '', description)
+                print(filtered_description)
+                csv_writer.writerow([test_img, filtered_description])
+                plt.imshow(img)
+
+save_test_results("well_lit_test_set", "well_lit_results.csv")
+
+# Getting error with channels for black and white data
+save_test_results("black_and_white_test_set", "black_white_results.csv")
+
+save_test_results("low_contrast_test_set", "low_contrast_results.csv")
+

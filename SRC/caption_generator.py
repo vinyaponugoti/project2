@@ -29,7 +29,7 @@ def all_img_captions(filename):
     captions = file.split('\n')
     descriptions ={}
     for caption in captions[:-1]:
-        print(caption)
+        # print(caption)
         img, caption = caption.split(', ', 1)
         if img not in descriptions:
             descriptions[img] = [ caption ]
@@ -74,21 +74,28 @@ def save_descriptions(descriptions, filename):
     file.write(data)
     file.close()
 
-dataset_text = "../DATA/"
+dataset_text = "DATA/"
 
 # change this to the path of the 30k images dataset
-dataset_images = "D:\dataflair projects\Project - Image Caption Generator\Flicker30k_Dataset"
+# dataset_images = "/Users/vinyaponugoti/Downloads/flickr30k-images"
+dataset_images = "DATA/images_set"
 
-filename = dataset_text + "/" + "Flickr30k-captions.txt"
+
+# filename = dataset_text + "flicker30k-captions.txt"
+filename = dataset_text + "output_file.txt"
 #loading the file that contains all data
 #mapping them into descriptions dictionary img to 5 captions
 descriptions = all_img_captions(filename)
 print("Length of descriptions =" ,len(descriptions))
+
+
 #cleaning the descriptions
 clean_descriptions = cleaning_text(descriptions)
+
 #building vocabulary 
 vocabulary = text_vocabulary(clean_descriptions)
-print("Length of vocabulary = ", len(vocabulary))
+# print("Length of vocabulary = ", len(vocabulary))
+
 #saving each description to file 
 save_descriptions(clean_descriptions, "descriptions.txt")
 
@@ -148,7 +155,8 @@ def load_features(photos):
     return features
 
 
-filename = dataset_text + "/" + "Flickr_30k.trainImages.txt"
+# filename = dataset_text + "/" + "Flickr_30k.trainImages.txt"
+filename = dataset_text + "/" + "image_names.txt"
 
 #train = loading_data(filename)
 train_imgs = load_photos(filename)
