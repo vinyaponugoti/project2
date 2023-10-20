@@ -28,6 +28,8 @@ def extract_features(filename, model):
         image = image.resize((299,299))
         image = np.array(image)
         # for images that has 4 channels, we convert them into 3 channels
+        if len(image.shape) == 2:
+            image = np.stack([image]*3, axis=-1)
         if image.shape[2] == 4: 
             image = image[..., :3]
         image = np.expand_dims(image, axis=0)
