@@ -16,7 +16,7 @@ To install this code make sure to install the following packages:
 - ```pip install jupyterlab```
 
 ### Code usage
-In order to run our code, use the command ```python3 SRC/testing_generator.py``` This will output the test results for the images from the well lit, black and white, and low contrast datasets in the well_lit_results.csv, black_white_results.csv, and low_contrast_results.csv respectively with each image from the dataset and its generated caption in the same line. In order to generate ca
+In order to run our code, use the command ```python3 SRC/testing_generator.py``` This will output the test results for the images from the well lit, black and white, and low contrast datasets in the well_lit_results.csv, black_white_results.csv, and low_contrast_results.csv respectively with each image from the dataset and its generated caption in the same line. In order to generate captions for a new dataset of images you can add save_test_results("name_of_images_dataset", "output.csv") to the 
 
 
 # DATA
@@ -26,10 +26,10 @@ Within our data folder, there are three subfolders which contain our three test 
 
 # REFERENCES
 
-[1] D. Team, “Python based project - learn to build Image Caption Generator with CNN & LSTM,” DataFlair, https://data-flair.training/blogs/python-based-project-image-caption-generator-cnn/ (accessed Oct. 8, 2023).
-[2] O. Russakovsky and J. Deng, “Imagenet Large Scale Visual Recognition Challenge 2015 (ILSVRC2015),” ImageNet, https://image-net.org/challenges/LSVRC/2015/2015-downloads.php (accessed Oct. 15, 2023). 
-[3] P. Young, A. Lai, M. Hodosh, and J. Hockenmaier, “From image descriptions to visual denotations: New similarity metrics for semantic inference over event descriptions,” Transactions of the Association for Computational Linguistics, vol. 2, pp. 67–78, 2014. doi:10.1162/tacl_a_00166
-[4] S. A. Khan, “How to change the contrast and brightness of an image using opencv in python?,” How to change the contrast and brightness of an image using OpenCV in Python?, https://www.tutorialspoint.com/how-to-change-the-contrast-and-brightness-of-an-image-using-opencv-in-python (accessed Oct. 15, 2023). 
-[5] A. Akbarinia and R. Gil-Rodriguez, “Deciphering image contrast in object classification Deep Networks,” Vision Research, https://www.sciencedirect.com/science/article/pii/S0042698920300766 (accessed Oct. 8, 2023). 
-[6] S. Xiang, “How machine learning can help visually impaired people,” Medium, https://towardsdatascience.com/how-can-machine-learning-help-visually-impaired-people-4fcdc76816b2 (accessed Oct. 8, 2023). 
-[7] J. Wang, S. Wang, and Y. Zhang, “Artificial Intelligence for Visually impaired,” Displays, https://www.sciencedirect.com/science/article/pii/S0141938223000240 (accessed Oct. 8, 2023). 
+[1] D. Team, “Python based project - learn to build Image Caption Generator with CNN & LSTM,” DataFlair, https://data-flair.training/blogs/python-based-project-image-caption-generator-cnn/ (accessed Oct. 8, 2023).\
+[2] O. Russakovsky and J. Deng, “Imagenet Large Scale Visual Recognition Challenge 2015 (ILSVRC2015),” ImageNet, https://image-net.org/challenges/LSVRC/2015/2015-downloads.php (accessed Oct. 15, 2023). \
+[3] P. Young, A. Lai, M. Hodosh, and J. Hockenmaier, “From image descriptions to visual denotations: New similarity metrics for semantic inference over event descriptions,” Transactions of the Association for Computational Linguistics, vol. 2, pp. 67–78, 2014. doi:10.1162/tacl_a_00166\
+[4] S. A. Khan, “How to change the contrast and brightness of an image using opencv in python?,” How to change the contrast and brightness of an image using OpenCV in Python?, https://www.tutorialspoint.com/how-to-change-the-contrast-and-brightness-of-an-image-using-opencv-in-python (accessed Oct. 15, 2023). \
+[5] A. Akbarinia and R. Gil-Rodriguez, “Deciphering image contrast in object classification Deep Networks,” Vision Research, https://www.sciencedirect.com/science/article/pii/S0042698920300766 (accessed Oct. 8, 2023). \
+[6] S. Xiang, “How machine learning can help visually impaired people,” Medium, https://towardsdatascience.com/how-can-machine-learning-help-visually-impaired-people-4fcdc76816b2 (accessed Oct. 8, 2023). \
+[7] J. Wang, S. Wang, and Y. Zhang, “Artificial Intelligence for Visually impaired,” Displays, https://www.sciencedirect.com/science/article/pii/S0141938223000240 (accessed Oct. 8, 2023). \
