@@ -28,6 +28,8 @@ def extract_features(filename, model):
         image = image.resize((299,299))
         image = np.array(image)
         # for images that has 4 channels, we convert them into 3 channels
+        if len(image.shape) == 2:
+            image = np.stack([image]*3, axis=-1)
         if image.shape[2] == 4: 
             image = image[..., :3]
         image = np.expand_dims(image, axis=0)
@@ -77,7 +79,7 @@ def save_test_results(test_dataset, csv_path):
                 max_length = 32
 
                 tokenizer = load(open("tokenizer.p","rb"))
-                model = load_model('models/model_9.h5')
+                model = load_model('models/model_9.h5') #file path may need to be changed if we put model in a different path
                 xception_model = Xception(include_top=False, pooling="avg")
 
                 photo = extract_features(img_path, xception_model)
@@ -93,7 +95,6 @@ def save_test_results(test_dataset, csv_path):
 
 save_test_results("well_lit_test_set", "well_lit_results.csv")
 
-# Getting error with channels for black and white data
 save_test_results("black_and_white_test_set", "black_white_results.csv")
 
 save_test_results("low_contrast_test_set", "low_contrast_results.csv")
