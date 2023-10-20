@@ -35,4 +35,6 @@ Within the figures folder are some graphical demonstrations of how the models we
 [4] S. A. Khan, “How to change the contrast and brightness of an image using opencv in python?,” How to change the contrast and brightness of an image using OpenCV in Python?, https://www.tutorialspoint.com/how-to-change-the-contrast-and-brightness-of-an-image-using-opencv-in-python (accessed Oct. 15, 2023). \
 [5] A. Akbarinia and R. Gil-Rodriguez, “Deciphering image contrast in object classification Deep Networks,” Vision Research, https://www.sciencedirect.com/science/article/pii/S0042698920300766 (accessed Oct. 8, 2023). \
 [6] S. Xiang, “How machine learning can help visually impaired people,” Medium, https://towardsdatascience.com/how-can-machine-learning-help-visually-impaired-people-4fcdc76816b2 (accessed Oct. 8, 2023). \
-[7] J. Wang, S. Wang, and Y. Zhang, “Artificial Intelligence for Visually impaired,” Displays, https://www.sciencedirect.com/science/article/pii/S0141938223000240 (accessed Oct. 8, 2023). 
+[7] J. Wang, S. Wang, and Y. Zhang, “Artificial Intelligence for Visually impaired,” Displays, https://www.sciencedirect.com/science/article/pii/S0141938223000240 (accessed Oct. 8, 2023). \
+[8]</a> [Milestone 1 Document](https://docs.google.com/document/d/1G4Jvo4EQYtKPvtVvIoT4pRWm-4h2_MVep81_-D6IHkw/edit?usp=sharing) \
+[9]</a> [Milestone 2 Document](https://docs.google.com/document/d/1dHzD3yrBs_sJ41vBBawssA2my8qmjBXLX12vXCZNdr4/edit?usp=sharing)
