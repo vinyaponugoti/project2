@@ -24,6 +24,17 @@ In order to generate captions for images using our model, use the command ```pyt
 # DATA
 Within our data folder, there are three subfolders which contain our three test sets. Each subfolder contains 100 images that can be used by `testing_generator.py` to create captions for analysis of the model. `flicker30k-captions.txt` contains the set of image names with each of their 5 corresponding captions which is used in training the model. `Flickr_30k.trainImages.txt` is a newline separated list of each of the image names inthe flickr30k dataset which is needed for training the model. The main Flikr30k images dataset and the random contrast version of the set do not fit on github due to their size, so they can be accessed from our google drive data folder [here](https://drive.google.com/drive/folders/1ye6XsPeA9_LKVxbcmmriqXtG1ADnkz-F?usp=sharing). The two image files on the google drive are named `flickr30k-images.tar.gz` and `flickr30k-random-contrastimages.zip`. Both of these image sets contain the same 30,000 images. The random contrast dataset has modified the original flikr30k set to have random contrast on the images. The code for this change can be seen in `create_random_contrast_train_set.py`.
 
+## Data Dictionary
+| Attribute Name | Data Type | Required | Description | Example |
+| -------------- | --------- | ------- | ----------- | ------- |
+| Photo ID Number | Integer | Yes | The number associated with each photo or image | “4576671” |
+| Caption 1 | String | Yes | Contains the file name and then followed by the caption for the image | “1000092795.jpg, Two young guys with shaggy hair look at their hands while hanging out in the yard .” |
+| Caption 2 | String | Yes | Contains the file name and then followed by the caption for the image | “1000092795.jpg," Two young , White males are outside near many bushes ." |
+| Caption 3 | String | Yes | Contains the file name and then followed by the caption for the image | “1000092795.jpg, Two men in green shirts are standing in a yard.” |
+| Caption 4 | String | Yes | Contains the file name and then followed by the caption for the image | “1000092795.jpg, A man in a blue shirt standing in a garden .” |
+| Caption 5 | String | Yes | Contains the file name and then followed by the caption for the image | “1000092795.jpg,  Two friends enjoy time spent together” |
+| Image | jpg/jpeg | Yes | The image itself | n/a |
+
 # FIGURES
 Within the figures folder are some graphical demonstrations of how the models we are using for our image generation work [1]. These explain how an LSTM model works, how a Deep Convoluational Neural Network works, and then how our overall model works for caption generation for each image.
 
