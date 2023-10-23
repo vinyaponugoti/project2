@@ -13,7 +13,8 @@ from keras.layers import add
 from keras.models import Model, load_model
 from keras.layers import Input, Dense, LSTM, Embedding, Dropout
 # small library for seeing the progress of loops.
-from tqdm import tqdm_notebook as tqdm
+from tqdm import tqdm as tqdm
+import pandas
 
 tqdm().pandas()
 
@@ -77,9 +78,9 @@ def save_descriptions(descriptions, filename):
 dataset_text = "../DATA/"
 
 # change this to the path of the 30k images dataset
-dataset_images = "D:\dataflair projects\Project - Image Caption Generator\Flicker30k_Dataset"
+dataset_images = "../../flickr30k-random-contrastImages"
 
-filename = dataset_text + "/" + "Flickr30k-captions.txt"
+filename = dataset_text + "/" + "flickr30k-random-contrast-captions.txt"
 #loading the file that contains all data
 #mapping them into descriptions dictionary img to 5 captions
 descriptions = all_img_captions(filename)
@@ -148,7 +149,7 @@ def load_features(photos):
     return features
 
 
-filename = dataset_text + "/" + "Flickr_30k.trainImages.txt"
+filename = dataset_text + "/" + "flickr30k-random-contrast-trainImages.txt"
 
 #train = loading_data(filename)
 train_imgs = load_photos(filename)
@@ -264,11 +265,11 @@ print('Vocabulary Size:', vocab_size)
 print('Description Length: ', max_length)
 
 model = define_model(vocab_size, max_length)
-epochs = 10
+epochs = 5
 steps = len(train_descriptions)
 # making a directory models to save our models
 os.mkdir("models")
 for i in range(epochs):
     generator = data_generator(train_descriptions, train_features, tokenizer, max_length)
     model.fit_generator(generator, epochs=1, steps_per_epoch= steps, verbose=1)
-    model.save("SRC/models/model_" + str(i) + ".h5")
+    model.save("models/model_" + str(i) + ".h5")
