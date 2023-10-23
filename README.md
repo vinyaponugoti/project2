@@ -15,6 +15,7 @@ To install this code make sure to install the following packages:
 - ```pip install pydot```
 - ```pip install graphviz```
 - ```pip install pandas```
+- ```pip install matplotlib```
 
 ### Code usage
 #### Model Training
