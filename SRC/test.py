@@ -1,4 +1,4 @@
-filename = "../DATA/Flickr_30k.trainImages.txt"
+filename = "../DATA/low_contrast_random_contrast_results.csv"
 
 def load_doc(filename):
     # Opening the file as read only
@@ -12,15 +12,20 @@ def all_img_captions(filename):
     file = load_doc(filename)
     captions = file.split('\n')
 
-    new_captions_file = open("../DATA/flickr30k-random-contrast-trainImages.txt", "w")
+    test_results = open("../DATA/low_contrast_random_contrast_accuracy.txt", "w")
+
+    overall_accuracy_count = 0
 
     for caption in captions[:-1]:
-        name, extension = caption.split(".")
-        name = name + "_random_contrast"
-        extension = "jpeg"
-        new_filename = name + "." + extension
+        filename, caption = caption.split(",", 1)
+        print("filename:", filename)
+        print("caption:", caption)
+        accuracy = input("accuracy score: ")
+        overall_accuracy_count += accuracy
 
-        new_captions_file.write(new_filename + "\n")
+        test_results.write(filename + "," + str(accuracy))
+
+    test_results.write("\n\noverall accuracy: " + str(overall_accuracy_count) + "%")
     # descriptions ={}
     # trainfile = open("../DATA/Flickr_30k.trainImages.txt", 'w')
     # for caption in captions[:-1]:
