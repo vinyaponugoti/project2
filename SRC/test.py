@@ -21,7 +21,7 @@ def all_img_captions(filename):
         print("filename:", filename)
         print("caption:", caption)
         accuracy = input("accuracy score: ")
-        overall_accuracy_count += accuracy
+        overall_accuracy_count += float(accuracy)
 
         test_results.write(filename + "," + str(accuracy))
 
