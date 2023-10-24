@@ -1,4 +1,4 @@
-filename = "../DATA/low_contrast_random_contrast_results.csv"
+filename = "DATA/well_lit_results.csv"
 
 def load_doc(filename):
     # Opening the file as read only
@@ -12,7 +12,7 @@ def all_img_captions(filename):
     file = load_doc(filename)
     captions = file.split('\n')
 
-    test_results = open("../DATA/low_contrast_random_contrast_accuracy.txt", "w")
+    test_results = open("DATA/well_lit_accuracy.txt", "w")
 
     overall_accuracy_count = 0
 
@@ -21,7 +21,7 @@ def all_img_captions(filename):
         print("filename:", filename)
         print("caption:", caption)
         accuracy = input("accuracy score: ")
-        overall_accuracy_count += accuracy
+        overall_accuracy_count += float (accuracy)
 
         test_results.write(filename + "," + str(accuracy))
 
